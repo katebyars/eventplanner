@@ -148,19 +148,22 @@ public class App {
                     System.out.println("Here is your beverage selection: " + beverageString);
 
                     System.out.println("Do you want to add this cool and totally random party to your list of parties? YES or NO?");
-                    if (bufferedReader.readLine().equals("YES")) {
-                        Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
-                        allParties.add(planner);
-                        System.out.println("#############################  Your party has been added! The details are below!  ########################");
-                        System.out.println("The party planner: " + planner.getNameofPartyPlanner());
-                        System.out.println("The number of guests: " + planner.getNumberOfGuests());
-                        System.out.println("The band name: " + planner.getBandName());
-                        System.out.println("The food menu: " + planner.getFoodMenu());
-                        System.out.println("The beverage choice: " + planner.getBeverageMenu());
-                        System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
-                    } else if (bufferedReader.readLine().equals("NO")){
-                        System.out.println("Ok! No worries! What would you like to do next?");
-                    }
+                        if (bufferedReader.readLine().equals("YES")) {
+                            Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
+                            allParties.add(planner);
+
+                            System.out.println("#############################  Your party has been added! The details are below!  ########################");
+                            System.out.println("The party planner: " + planner.getNameofPartyPlanner());
+                            System.out.println("The number of guests: " + planner.getNumberOfGuests());
+                            System.out.println("The band name: " + planner.getBandName());
+                            System.out.println("The food menu: " + planner.getFoodMenu());
+                            System.out.println("The beverage choice: " + planner.getBeverageMenu());
+                            System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
+                        }
+                        else{
+                            System.out.println("Ok! No worries! What would you like to do next?");
+                            programRunning = true;
+                        }
                 }
                 else {
                     System.out.println("I'm sorry, we don't recognize your input");
