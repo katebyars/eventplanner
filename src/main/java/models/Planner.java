@@ -78,7 +78,8 @@ public class Planner {
         }
 
         totalPrice = ((numberOfGuests * 10) + foodPrice + bandPrice + beveragePrice);
-        return totalPrice;
+        this.totalPrice = totalPrice;
+        return this.totalPrice;
     }
 
     public int couponGenerator(int totalPrice, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
