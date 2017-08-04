@@ -32,7 +32,7 @@ public class PlannerTest {
     @Test
     public void newPlanner_changeBandChoiceToString_BandName(){
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
-        assertEquals("Perry and the Developers", planner.convertChoicesBand("2"));
+        assertEquals("Perry and the Developers", planner.convertChoicesBand("1"));
     }
 
 
