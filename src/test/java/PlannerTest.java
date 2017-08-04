@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -9,7 +11,13 @@ public class PlannerTest {
 
     @Test
     public void newPlanner_Instantiate() {
-        Planner planner = new Planner("Kate's Party");
+        Planner planner = new Planner("Kate's Party", 30, "Jimmy and the Developers");
         assertEquals(true, planner instanceof Planner);
+    }
+
+    @Test
+    public void newPlanner_parametersExist() {
+        Planner planner = new Planner ("Kate's Party", 30, "Jimmy and the Developers");
+        assertEquals("Kate's Party", planner.getNameofParty());
     }
 }
