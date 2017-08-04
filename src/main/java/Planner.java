@@ -9,11 +9,15 @@ public class Planner {
     private String nameofParty;
     private int numberOfGuests;
     private String bandName;
+    private String foodMenu;
+    private String beverageMenu;
 
-    public Planner(String nameofParty, int numberOfGuests, String bandName){
+    public Planner(String nameofParty, int numberOfGuests, String bandName, String foodMenu, String beverageMenu){
         this.nameofParty = nameofParty;
         this.numberOfGuests = numberOfGuests;
         this.bandName = bandName;
+        this.foodMenu = foodMenu;
+        this.beverageMenu = beverageMenu;
     }
 
     public String getBandName() {
@@ -24,6 +28,12 @@ public class Planner {
     }
     public int getNumberOfGuests() {
         return numberOfGuests;
+    }
+    public String getFoodMenu() {
+        return foodMenu;
+    }
+    public String getBeverageMenu() {
+        return beverageMenu;
     }
 
     public int calculatePartyPrice(int numberOfGuests, String foodMenu, String bandName, String beverageMenu){
