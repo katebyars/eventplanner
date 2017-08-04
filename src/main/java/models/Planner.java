@@ -2,6 +2,7 @@ package models;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Guest on 8/4/17.
@@ -134,7 +135,5 @@ public class Planner {
         }
         return this.beverageMenu;
     }
-
-
 }
 

@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 import models.Planner;
 
@@ -16,7 +17,7 @@ public class App {
 
         while (programRunning) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Hello and welcome to the party planner! Let's go over a few questions so that we can work up a custom quote for you. Enter one of the following navigation choices: PLAN, EXIT, SEE MY PARTIES");
+            System.out.println("Hello and welcome to the party planner! Let's go over a few questions so that we can work up a custom quote for you. Enter one of the following navigation choices: PLAN, EXIT, SEE MY PARTIES, PLAN IT FOR ME");
             try {
                 String navigationChoice = bufferedReader.readLine();
                 if (navigationChoice.equals("PLAN")) {
@@ -73,18 +74,95 @@ public class App {
                     programRunning = true;
                     System.out.println("#############################  Here are all of your planned parties  ########################");
                     for (Planner individualParty : allParties){
-                        System.out.println(individualParty.nameofPartyPlanner();
-                        System.out.println(individualParty.numberOfGuests();
-                        System.out.println(individualParty.bandName();
-                        System.out.println(individualParty.foodMenu();
-                        System.out.println(individualParty.beverageMenu();
-                        System.out.println(individualParty.totalPrice();
+                        System.out.println("Your Party Planner: " + individualParty.getNameofPartyPlanner());
+                        System.out.println("Guest Count: " + individualParty.getNumberOfGuests());
+                        System.out.println("The Band: " + individualParty.getBandName());
+                        System.out.println("The Menu: " + individualParty.getFoodMenu());
+                        System.out.println("Beverage Selection: " + individualParty.getBeverageMenu());
+                        System.out.println("Total Price: " + individualParty.getTotalPrice());
+                        System.out.println("###############################################################################");
                     }
 
                 } else if (navigationChoice.equals("EXIT")) {
                     System.out.println("Goodbye!");
                     programRunning = false;
-                } else {
+                } else if (navigationChoice.equals("PLAN IT FOR ME")){
+
+                    String bandString = "";
+                    String foodString = "";
+                    String beverageString = "";
+
+                    System.out.println("Alright! Let's plan your party. But first, what is your name?");
+                    String nameofPartyPlanner = bufferedReader.readLine();
+
+                    System.out.println("One more question : How many people will attend your party? We'll do the rest!");
+                    int numberOfGuests = Integer.parseInt(bufferedReader.readLine());
+
+                    Random RandomGeneratorTwo = new Random();
+                    int bandNamePicker = RandomGeneratorTwo.nextInt(4);
+                    int band = bandNamePicker ;
+                    switch (band) {
+                        case 1:
+                            bandString = "Perry and the Developers";
+                            break;
+                        case 2:
+                            bandString = "You're the Project";
+                            break;
+                        case 3:
+                            bandString = "Resubmit for Indentation";
+                            break;
+                    }
+
+                    Random RandomGeneratorThree = new Random();
+                    int foodNamePicker = RandomGeneratorThree.nextInt(4);
+                    int food = bandNamePicker ;
+                    switch (food) {
+                        case 1:
+                            foodString = "Deluxe International";
+                            break;
+                        case 2:
+                            foodString = "American Fusion Buffet";
+                            break;
+                        case 3:
+                            foodString = "Backyard Barbeque";
+                            break;
+                    }
+
+                    Random RandomGeneratorOne = new Random();
+                    int beverageNamePicker = RandomGeneratorOne.nextInt(4);
+                    int beverage = bandNamePicker ;
+                    switch (beverage) {
+                        case 1:
+                            beverageString = "Soft Drinks";
+                            break;
+                        case 2:
+                            beverageString = "Beer and Wine";
+                            break;
+                        case 3:
+                            beverageString = "Unlimited Full Well Bar";
+                            break;
+                    }
+
+                    System.out.println("Here is your band: " + bandString);
+                    System.out.println("Here is your food: " + foodString);
+                    System.out.println("Here is your beverage selection: " + beverageString);
+
+                    System.out.println("Do you want to add this cool and totally random party to your list of parties? YES or NO?");
+                    if (bufferedReader.readLine().equals("YES")) {
+                        Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
+                        allParties.add(planner);
+                        System.out.println("#############################  Your party has been added! The details are below!  ########################");
+                        System.out.println("The party planner: " + planner.getNameofPartyPlanner());
+                        System.out.println("The number of guests: " + planner.getNumberOfGuests());
+                        System.out.println("The band name: " + planner.getBandName());
+                        System.out.println("The food menu: " + planner.getFoodMenu());
+                        System.out.println("The beverage choice: " + planner.getBeverageMenu());
+                        System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
+                    } else if (bufferedReader.readLine().equals("NO")){
+                        System.out.println("Ok! No worries! What would you like to do next?");
+                    }
+                }
+                else {
                     System.out.println("I'm sorry, we don't recognize your input");
                 }
 
