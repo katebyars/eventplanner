@@ -20,4 +20,9 @@ public class PlannerTest {
         Planner planner = new Planner ("Kate's Party", 30, "Jimmy and the Developers");
         assertEquals("Kate's Party", planner.getNameofParty());
     }
+    @Test
+    public void newPlanner_priceCalculatorCalculatesCorrectly_int (){
+        Planner planner = new Planner ("Kate's Party", 30, "Jimmy and the Developers");
+        assertEquals(1, planner.calculatePartyPrice(10, "1", "1", "1"));
+    }
 }
