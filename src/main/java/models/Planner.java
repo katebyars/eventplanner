@@ -109,6 +109,9 @@ public class Planner {
         else if (bandName.equals("3")){
             this.bandName= "Resubmit for Indentation";
         }
+        else if (bandName.equals("0")){
+            this.bandName = "N/A"
+        }
         return this.bandName;
     }
     public String convertChoicesFood(String foodMenu){
@@ -121,6 +124,9 @@ public class Planner {
         else if (foodMenu.equals("3")){
             this.foodMenu= "Backyard Barbeque";
         }
+        else if (foodMenu.equals("0")){
+            this.foodMenu = "N/A"
+        }
         return this.foodMenu;
     }
     public String convertChoicesBeverage(String beverageMenu){
@@ -132,6 +138,9 @@ public class Planner {
         }
         else if (beverageMenu.equals("3")){
             this.beverageMenu= "Unlimited Full Well Bar";
+        }
+        else if (beverageMenu.equals("0")){
+            this.beverageMenu = "N/A"
         }
         return this.beverageMenu;
     }
