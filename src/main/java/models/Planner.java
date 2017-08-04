@@ -63,6 +63,8 @@ public class Planner {
             foodPrice = numberOfGuests * 30;
         } else if (foodMenu.equals("3")) {
             foodPrice = numberOfGuests * 40;
+        } else if (foodMenu.equals("0")) {
+            foodPrice = 0;
         }
         if (bandName.equals("1")) {
             bandPrice = 2000;
@@ -70,6 +72,8 @@ public class Planner {
             bandPrice = 3000;
         } else if (bandName.equals("3")) {
             bandPrice = 4000;
+        } else if (bandName.equals("0")) {
+        bandPrice = 0;
         }
         if (beverageMenu.equals("1")) {
             beveragePrice = numberOfGuests * 5;
@@ -77,6 +81,8 @@ public class Planner {
             beveragePrice = numberOfGuests * 12;
         } else if (beverageMenu.equals("3")) {
             beveragePrice = numberOfGuests * 35;
+        } else if (beverageMenu.equals("0")) {
+            beveragePrice = 0;
         }
 
         totalPrice = ((numberOfGuests * 10) + foodPrice + bandPrice + beveragePrice);
@@ -110,7 +116,7 @@ public class Planner {
             this.bandName= "Resubmit for Indentation";
         }
         else if (bandName.equals("0")){
-            this.bandName = "N/A"
+            this.bandName = "N/A";
         }
         return this.bandName;
     }
@@ -125,7 +131,7 @@ public class Planner {
             this.foodMenu= "Backyard Barbeque";
         }
         else if (foodMenu.equals("0")){
-            this.foodMenu = "N/A"
+            this.foodMenu = "N/A";
         }
         return this.foodMenu;
     }
@@ -140,7 +146,7 @@ public class Planner {
             this.beverageMenu= "Unlimited Full Well Bar";
         }
         else if (beverageMenu.equals("0")){
-            this.beverageMenu = "N/A"
+            this.beverageMenu = "N/A";
         }
         return this.beverageMenu;
     }
