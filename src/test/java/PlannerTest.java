@@ -27,7 +27,7 @@ public class PlannerTest {
     @Test
     public void newPlanner_couponFor150GuestsOrMore_newPrice(){
         Planner planner = new Planner("Kate's Party", 30, "Jimmy and the Developers","0", "0");
-        assertEquals("", planner.couponFor150GuestsOrMore(2350, 150));
+        assertEquals(2300, planner.couponFor150GuestsOrMore(2350, 150));
 
     }
 
