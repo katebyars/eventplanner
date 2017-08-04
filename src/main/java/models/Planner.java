@@ -116,6 +116,30 @@ public class Planner {
         }
         return this.bandName;
     }
+    public String convertChoicesFood(String foodMenu){
+        if (foodMenu.equals("1")){
+            this.foodMenu = "Deluxe International";
+        }
+        else if (foodMenu.equals("2")){
+            this.foodMenu = "American Fusion Buffet";
+        }
+        else if (foodMenu.equals("3")){
+            this.foodMenu= "Backyard Barbeque";
+        }
+        return this.foodMenu;
+    }
+    public String convertChoicesBeverage(String beverageMenu){
+        if (beverageMenu.equals("1")){
+            this.beverageMenu = "Soft Drinks";
+        }
+        else if (beverageMenu.equals("2")){
+            this.beverageMenu = "Beer and Wine";
+        }
+        else if (beverageMenu.equals("3")){
+            this.beverageMenu= "Unlimited Full Well Bar";
+        }
+        return this.beverageMenu;
+    }
 
 
 }

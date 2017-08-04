@@ -36,16 +36,27 @@ public class App {
 
                 Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandName, foodMenu, beverageMenu);
                 planner.convertChoicesBand(bandName);
+                planner.convertChoicesFood(foodMenu);
+                planner.convertChoicesBeverage(beverageMenu);
                 System.out.println("Great! Here are the details of your party:");
-                System.out.println("___________________________________________");
-                System.out.println("The party planner:" + planner.getNameofPartyPlanner());
-                System.out.println("The number of guests:" + planner.getNumberOfGuests());
-                System.out.println("The band name:" + planner.getBandName());
-                System.out.println("The food menu:" + planner.getFoodMenu());
-                System.out.println("The beverage choice:" + planner.getBeverageMenu());
+                System.out.println("###################################################################");
+                System.out.println("The party planner: " + planner.getNameofPartyPlanner());
+                System.out.println("The number of guests: " + planner.getNumberOfGuests());
+                System.out.println("The band name: " + planner.getBandName());
+                System.out.println("The food menu: " + planner.getFoodMenu());
+                System.out.println("The beverage choice: " + planner.getBeverageMenu());
                 System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
 
-                System.out.println("Do you have any coupons you would like to apply to this total?");
+                System.out.println("Are you eligible for any coupons? If so, you may apply them to your total now. Remember : you may only redeem one coupon for each party.");
+                System.out.println("############################COUPON CODES############################");
+                System.out.println("code - PERRY: Perry and the Developers + Full Well Bar ");
+                System.out.println("code - YOU: 150 Guests + You're the Project");
+                System.out.println("code - YAY: Resubmit For Indentation + Full Well Bar + Deluxe International Menu");
+                System.out.println("##############################ENTER YOUR COUPON CODE#########################");
+                String coupon = bufferedReader.readLine();
+                if (coupon.equals("PERRY") || coupon.equals("YOU") || coupon.equals("YAY")) {
+                    System.out.println("Great! Your new order total is: ");
+                }
                 int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
                 int newTotal = planner.couponGenerator(totalPrice, numberOfGuests, bandName, foodMenu, beverageMenu);
                 System.out.println("AND guess what " + nameofPartyPlanner +"! you qualified for a few discounts because of your selections! Your new total is : " + newTotal);
