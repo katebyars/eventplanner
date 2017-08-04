@@ -15,6 +15,7 @@ public class Planner {
     private String beverageMenu;
     private int totalPrice;
 
+
     public Planner(String nameofPartyPlanner, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
         this.nameofPartyPlanner = nameofPartyPlanner;
         this.numberOfGuests = numberOfGuests;
