@@ -35,7 +35,7 @@ public class PlannerTest {
     @Test
     public void
         newPlanner_calculateCoupon_NewPrice(){Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
-        assertEquals(2000, planner.couponGenerator(2000, 155, "Perry and the Developers", "Deluxe International", "Unlimited Full Well Bar"));
+        assertEquals(1800, planner.couponGenerator(2000, 155, "Perry and the Developers", "Deluxe International", "Unlimited Full Well Bar"));
     }
 
 
