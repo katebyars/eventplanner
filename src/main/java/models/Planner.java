@@ -81,12 +81,27 @@ public class Planner {
         return totalPrice;
     }
 
-    public int couponGenerator (int totalPrice, String numberOfGuests, String bandName, String foodMenu) {
+    public int couponGenerator(int totalPrice, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
+        int newtotalPrice = totalPrice;
+        int bandNameDiscount = 0;
+        int foodMenuDiscount = 0;
+        int beverageMenuDiscount = 0;
+        int numberOfGuestsDiscount = 0;
 
-        int numberOfGuestsDiscount = (Integer.parseInt(numberOfGuests))*100;
-        int bandNameDiscountDiscount = (Integer.parseInt(bandName))*100;
-        int foodMenuDiscountDiscount = (Integer.parseInt(foodMenu))*100;
-        return totalPrice = (totalPrice -= (numberOfGuestsDiscount + bandNameDiscountDiscount + foodMenuDiscountDiscount));
+        if (numberOfGuests >= 150){
+            numberOfGuestsDiscount = 50;
+        }
+        if (bandName.equals("1")) {
+            bandNameDiscount = (Integer.parseInt(bandName)) * 100;
+        }
+        if (foodMenu.equals("1")) {
+            foodMenuDiscount = (Integer.parseInt(foodMenu)) * 100;
+        }
+        if (beverageMenu.equals("1")) {
+            beverageMenuDiscount = (Integer.parseInt(foodMenu)) * 100;
+        }
+        newtotalPrice -= (numberOfGuestsDiscount + bandNameDiscount + foodMenuDiscount + beverageMenuDiscount);
+        return newtotalPrice;
     }
 
 }
