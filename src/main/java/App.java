@@ -15,7 +15,7 @@ public class App {
 
         try {
             String navigationChoice = bufferedReader.readLine();
-            if (navigationChoice.equals("YES")){
+            if (navigationChoice.equals("YES")) {
 
                 System.out.println("For our records, what is the name of your party?");
                 String nameofParty = bufferedReader.readLine();
@@ -33,12 +33,20 @@ public class App {
                 String beverageMenu = bufferedReader.readLine();
 
 
-            Planner planner = new Planner(nameofParty, numberOfGuests, bandName, foodMenu, beverageMenu);
-            System.out.println("Your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                Planner planner = new Planner(nameofParty, numberOfGuests, bandName, foodMenu, beverageMenu);
+                System.out.println("Your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
 
-        }
+                if (planner.getNumberOfGuests() >= 150)
+                {
+                    planner.couponFor150GuestsOrMore(totalPrice);
+                    System.out.println("Congrats! Your party qualifies for a discount! Your new price is: $");
+                }
+            }
 
-    } catch (IOException e) {
+    }
+    catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
