@@ -64,10 +64,19 @@ public class App {
 
                     String coupon = bufferedReader.readLine().toUpperCase();
 
-                    if (coupon.equals("PERRY") || coupon.equals("YOU") || coupon.equals("YAY")) {
+                    if (coupon.equals("PERRY") && planner.getBandName().equals("Perry and the Developers") && planner.getBeverageMenu().equals("Unlimited Full Well Bar")) {
                         String nicePrice3 = NumberFormat.getIntegerInstance().format(planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
-                        System.out.println("Great! You got a discount! Your new order total is: " + nicePrice3);
-                    } else {
+                        System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+                    }
+                    else if (coupon.equals("YOU") && planner.getNumberOfGuests()>=150 && planner.getBandName().equals("You're the Project")){
+                        String nicePrice3 = NumberFormat.getIntegerInstance().format(planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
+                        System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+                    }
+                    else if (coupon.equals("YAY") && planner.getBandName().equals("Resubmit for Indentation") && planner.getBeverageMenu().equals("Unlimited Full Well Bar")){
+                        String nicePrice3 = NumberFormat.getIntegerInstance().format(planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
+                        System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+                    }
+                    else {
                         System.out.println("Whoops! It looks like you don't qualify for a coupon!");
                     }
                 } else if (navigationChoice.equals("SEE MY PARTIES")) {
