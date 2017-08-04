@@ -82,26 +82,18 @@ public class Planner {
     }
 
     public int couponGenerator(int totalPrice, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
-        int newtotalPrice = totalPrice;
-        int bandNameDiscount = 0;
-        int foodMenuDiscount = 0;
-        int beverageMenuDiscount = 0;
-        int numberOfGuestsDiscount = 0;
 
-        if (numberOfGuests >= 150){
-            numberOfGuestsDiscount = 50;
+        if (bandName.equals("Perry and the Developers") && beverageMenu.equals("Unlimited Full Well Bar")) {
+            totalPrice -= 200;
         }
-        if (bandName.equals("1")) {
-            bandNameDiscount = (Integer.parseInt(bandName)) * 100;
+        else if (numberOfGuests >= 150 && bandName.equals("You're the Project")){
+        totalPrice -= 100;
         }
-        if (foodMenu.equals("1")) {
-            foodMenuDiscount = (Integer.parseInt(foodMenu)) * 100;
-        }
-        if (beverageMenu.equals("1")) {
-            beverageMenuDiscount = (Integer.parseInt(foodMenu)) * 100;
-        }
-        newtotalPrice -= (numberOfGuestsDiscount + bandNameDiscount + foodMenuDiscount + beverageMenuDiscount);
-        return newtotalPrice;
+        else if (bandName.equals("Resubmit for Indentation") && beverageMenu.equals("Unlimited Full Well Bar") && foodMenu.equals("Deluxe International")){
+        totalPrice-=400;
+    }
+        this.totalPrice = totalPrice;
+        return this.totalPrice;
     }
 
     public String convertChoicesBand(String bandName){

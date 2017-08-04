@@ -49,17 +49,16 @@ public class App {
 
                 System.out.println("Are you eligible for any coupons? If so, you may apply them to your total now. Remember : you may only redeem one coupon for each party.");
                 System.out.println("############################COUPON CODES############################");
-                System.out.println("code - PERRY: Perry and the Developers + Full Well Bar ");
-                System.out.println("code - YOU: 150 Guests + You're the Project");
-                System.out.println("code - YAY: Resubmit For Indentation + Full Well Bar + Deluxe International Menu");
+                System.out.println("code - PERRY: Perry and the Developers + Full Well Bar - 200.00 off order");
+                System.out.println("code - YOU: 150 Guests + You're the Project - 100.00 off order");
+                System.out.println("code - YAY: Resubmit For Indentation + Full Well Bar + Deluxe International Menu - 400.00 off order");
                 System.out.println("##############################ENTER YOUR COUPON CODE#########################");
                 String coupon = bufferedReader.readLine();
                 if (coupon.equals("PERRY") || coupon.equals("YOU") || coupon.equals("YAY")) {
                     System.out.println("Great! Your new order total is: ");
                 }
                 int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
-                int newTotal = planner.couponGenerator(totalPrice, numberOfGuests, bandName, foodMenu, beverageMenu);
-                System.out.println("AND guess what " + nameofPartyPlanner +"! you qualified for a few discounts because of your selections! Your new total is : " + newTotal);
+
             }
 
             else {

@@ -19,20 +19,23 @@ public class PlannerTest {
         Planner planner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
         assertEquals("Kate's Party", planner.getNameofPartyPlanner());
     }
+
     @Test
     public void newPlanner_priceCalculatorCalculatesCorrectly_int (){
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
         assertEquals(2350, planner.calculatePartyPrice(10, "1", "1", "1"));
     }
-    @Test
-    public void newPlanner_calculateMultipleCoupons_newTotal(){
-        Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
-        assertEquals(2000, planner.couponGenerator(2350, 155, "1", "1", "1"));
-    }
+
     @Test
     public void newPlanner_changeBandChoiceToString_BandName(){
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
         assertEquals("Perry and the Developers", planner.convertChoicesBand("1"));
+    }
+
+    @Test
+    public void
+        newPlanner_calculateCoupon_NewPrice(){Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
+        assertEquals(2000, planner.couponGenerator(2000, 155, "Perry and the Developers", "Deluxe International", "Unlimited Full Well Bar"));
     }
 
 
