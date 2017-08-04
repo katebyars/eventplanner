@@ -27,6 +27,6 @@ public class PlannerTest {
     @Test
     public void newPlanner_calculateMultipleCoupons_newTotal(){
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
-        assertEquals(2350, planner.couponGenerator(2350, 155, "1", "1", "1"));
+        assertEquals(2000, planner.couponGenerator(2350, 155, "1", "1", "1"));
     }
 }
