@@ -13,6 +13,7 @@ public class Planner {
     private String bandName;
 
     public Planner(String nameofParty, int numberOfGuests, String bandName){
+        this.nameofParty = nameofParty;
     }
 
     public String getBandName() {
