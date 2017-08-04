@@ -192,14 +192,15 @@ public class App {
                         System.out.println("Make your choice: birthday, reunion or wedding");
                         if (bufferedReader.readLine().toUpperCase().equals("BIRTHDAY")) {
                             Planner birthday = new Planner ("The Birthday Package", 30, "1", "1", "3");
+                            System.out.println("Great! The discounted birthday package total is" + birthday.discountedPackagePrice(birthday.getNumberOfGuests(), birthday.getFoodMenu(), birthday.getBandName(), birthday.getBeverageMenu()));
                             birthday.convertChoices(birthday.getBandName());
                             birthday.convertChoicesFood(birthday.getFoodMenu());
                             birthday.convertChoicesBeverage(birthday.getBeverageMenu());
                             allParties.add(birthday);
-                            System.out.println("Great! The discounted birthday package total is" + birthday.discountedPackagePrice(birthday.getNumberOfGuests(), birthday.getFoodMenu(), birthday.getBandName(), birthday.getBeverageMenu()));
                         }
                         else if (bufferedReader.readLine().toUpperCase().equals("REUNION")) {
                             Planner reunion = new Planner("The Reunion Package", 100, "3", "3", "2");
+                            System.out.println("Great! The discounted birthday package total is" + reunion.discountedPackagePrice(reunion.getNumberOfGuests(), reunion.getFoodMenu(), reunion.getBandName(), reunion.getBeverageMenu()));
                             reunion.convertChoices(reunion.getBandName());
                             reunion.convertChoicesFood(reunion.getFoodMenu());
                             reunion.convertChoicesBeverage(reunion.getBeverageMenu());
@@ -208,10 +209,12 @@ public class App {
                         }
                         else if (bufferedReader.readLine().toUpperCase().equals("WEDDING")) {
                             Planner wedding = new Planner("The Wedding Package", 200, "2", "1", "3");
+                            System.out.println("Great! The discounted birthday package total is" + wedding.discountedPackagePrice(wedding.getNumberOfGuests(), wedding.getFoodMenu(), wedding.getBandName(), wedding.getBeverageMenu()));
                             wedding.convertChoices(wedding.getBandName());
                             wedding.convertChoicesFood(wedding.getFoodMenu());
                             wedding.convertChoicesBeverage(wedding.getBeverageMenu());
                             allParties.add(wedding);
+
                         }
                     }
                     else
