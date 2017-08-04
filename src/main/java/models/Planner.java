@@ -153,5 +153,10 @@ public class Planner {
         }
         return this.beverageMenu;
     }
+    public int discountedPackagePrice(int numberOfGuests, String foodMenu, String bandName, String beverageMenu){
+       int nonDiscountPrice = calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
+       int DiscountPrice = nonDiscountPrice - 100;
+       return DiscountPrice;
+    }
 }
 

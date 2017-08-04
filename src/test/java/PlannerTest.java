@@ -37,6 +37,11 @@ public class PlannerTest {
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
         assertEquals(1800, planner.couponGenerator(2000, 155, "Perry and the Developers", "Deluxe International", "Unlimited Full Well Bar"));
     }
+    @Test
+    public void newPlanner_calculateDiscountedPackagePrice(){
+        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
 
+        assertEquals(1000, planner.discountedPackagePrice(100, "0","0","0"));
+    }
 
 }

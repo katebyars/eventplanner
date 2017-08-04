@@ -179,38 +179,38 @@ public class App {
                 }
                 else if (navigationChoice.toUpperCase().equals("BROWSE PACKAGES")){
 
-                    Planner wedding = new Planner("The Wedding Package", 200, "2", "1", "3");
-                    wedding.convertChoices(wedding.getBandName());
-                    wedding.convertChoicesFood(wedding.getFoodMenu());
-                    wedding.convertChoicesBeverage(wedding.getBeverageMenu());
-
-                    Planner birthday = new Planner ("The Birthday Package", 30, "1", "1", "3");
-                    birthday.convertChoices(birthday.getBandName());
-                    birthday.convertChoicesFood(birthday.getFoodMenu());
-                    birthday.convertChoicesBeverage(birthday.getBeverageMenu());
-
-                    Planner reunion = new Planner("The Reunion Package", 100, "2", "3", "2");
-                    reunion.convertChoices(reunion.getBandName());
-                    reunion.convertChoicesFood(reunion.getFoodMenu());
-                    reunion.convertChoicesBeverage(reunion.getBeverageMenu());
-
-                    System.out.println("We have three packages to choose from. Here they are: ");
+                    System.out.println("We have three packages to choose from. They are discounted by 25% upon adding to your Parties List. A great deal! Here they are: ");
                     System.out.println("#############################  PACKAGES  ########################");
-                    System.out.println(wedding.getNameofPartyPlanner() + " for up to " + wedding.getNumberOfGuests()  + " guests. Menu: " + wedding.getFoodMenu() + " | Beverage Service: " + wedding.getBeverageMenu());
-                    System.out.println(birthday.getNameofPartyPlanner() + " for up to " + birthday.getNumberOfGuests()  + " guests. Menu: " + birthday.getFoodMenu() + " | Beverage Service: " + birthday.getBeverageMenu());
-                    System.out.println(reunion.getNameofPartyPlanner() + " for up to " + reunion.getNumberOfGuests()  + " guests. Menu: " + reunion.getFoodMenu() + " | Beverage Service: " + reunion.getBeverageMenu());
+                    System.out.println("The Wedding package features up to 200 guests with 'You're the Project playing all night long! Deluxe International buffet and an Unlimited Well Bar for the evening.");
+                    System.out.println("The Birthday package features up to 30 guests and the music of 'Perry and the Developers'. Deluxe International Buffet with Unlimited Bar Well drinks for the night!");
+                    System.out.println("The reunion package is for up to 100 people with the music of 'Resubmit for Indentation. Backyard Barbeque is served with wine and beer.");
+
 
                     System.out.println("Would you like to choose one of these packages to add to the parties you are planning? YES or NO");
 
                     if (bufferedReader.readLine().toUpperCase().equals("YES")) {
                         System.out.println("Make your choice: birthday, reunion or wedding");
                         if (bufferedReader.readLine().toUpperCase().equals("BIRTHDAY")) {
+                            Planner birthday = new Planner ("The Birthday Package", 30, "1", "1", "3");
+                            birthday.convertChoices(birthday.getBandName());
+                            birthday.convertChoicesFood(birthday.getFoodMenu());
+                            birthday.convertChoicesBeverage(birthday.getBeverageMenu());
                             allParties.add(birthday);
+                            System.out.println("Great! The discounted birthday package total is" + birthday.discountedPackagePrice(birthday.getNumberOfGuests(), birthday.getFoodMenu(), birthday.getBandName(), birthday.getBeverageMenu()));
                         }
                         else if (bufferedReader.readLine().toUpperCase().equals("REUNION")) {
+                            Planner reunion = new Planner("The Reunion Package", 100, "3", "3", "2");
+                            reunion.convertChoices(reunion.getBandName());
+                            reunion.convertChoicesFood(reunion.getFoodMenu());
+                            reunion.convertChoicesBeverage(reunion.getBeverageMenu());
                             allParties.add(reunion);
+
                         }
                         else if (bufferedReader.readLine().toUpperCase().equals("WEDDING")) {
+                            Planner wedding = new Planner("The Wedding Package", 200, "2", "1", "3");
+                            wedding.convertChoices(wedding.getBandName());
+                            wedding.convertChoicesFood(wedding.getFoodMenu());
+                            wedding.convertChoicesBeverage(wedding.getBeverageMenu());
                             allParties.add(wedding);
                         }
                     }
