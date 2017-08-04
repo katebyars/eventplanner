@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -53,7 +54,8 @@ public class App {
                     System.out.println("The band name: " + planner.getBandName());
                     System.out.println("The food menu: " + planner.getFoodMenu());
                     System.out.println("The beverage choice: " + planner.getBeverageMenu());
-                    System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                    String nicePrice1 = NumberFormat.getIntegerInstance().format(planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                    System.out.println("Total cost: $" + nicePrice1);
 
                     System.out.println("Are you eligible for any coupons? If so, you may apply them to your total now. Remember: you may only redeem one coupon for each party that you plan. If you input a coupon that you are not eligible for, our system will apply any other qualifying coupons instead.");
                     System.out.println("###############################  COUPON CODES  ################################");
@@ -65,7 +67,8 @@ public class App {
                     String coupon = bufferedReader.readLine();
 
                     if (coupon.equals("PERRY") || coupon.equals("YOU") || coupon.equals("YAY")) {
-                        System.out.println("Great! You got a discount! Your new order total is: " + planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
+                        String nicePrice3 = NumberFormat.getIntegerInstance().format(planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
+                        System.out.println("Great! You got a discount! Your new order total is: " + nicePrice3);
                     } else {
                         System.out.println("Whoops! It looks like you don't qualify for a coupon!");
                     }
@@ -79,7 +82,8 @@ public class App {
                         System.out.println("The Band: " + individualParty.getBandName());
                         System.out.println("The Menu: " + individualParty.getFoodMenu());
                         System.out.println("Beverage Selection: " + individualParty.getBeverageMenu());
-                        System.out.println("Total Price: " + individualParty.getTotalPrice());
+                        String nicePrice = NumberFormat.getIntegerInstance().format(individualParty.getTotalPrice());
+                        System.out.println("Total Price: $" + nicePrice);
                         System.out.println("###############################################################################");
                     }
 
@@ -158,7 +162,8 @@ public class App {
                             System.out.println("The band name: " + planner.getBandName());
                             System.out.println("The food menu: " + planner.getFoodMenu());
                             System.out.println("The beverage choice: " + planner.getBeverageMenu());
-                            System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
+                            String nicePrice5 = NumberFormat.getIntegerInstance().format(planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
+                            System.out.println("Total cost: $" + nicePrice5);
                         }
                         else{
                             System.out.println("Ok! No worries! What would you like to do next?");
