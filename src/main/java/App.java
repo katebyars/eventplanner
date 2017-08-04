@@ -37,8 +37,10 @@ public class App {
                 Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandName, foodMenu, beverageMenu);
                 System.out.println(nameofPartyPlanner + " your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
                 int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
-
+                int newTotal = planner.couponGenerator(totalPrice, numberOfGuests, bandName, foodMenu, beverageMenu);
+                System.out.println("Guess what " + nameofPartyPlanner +" you qualified for a few discounts because of your selections! Your new total is : " + newTotal);
             }
+
             else {
                 System.out.println("Ok! Happy shopping elsewhere!");
             }
