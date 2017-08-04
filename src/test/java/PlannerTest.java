@@ -24,11 +24,5 @@ public class PlannerTest {
         Planner planner = new Planner ("Kate's Party", 10, "1","1", "1");
         assertEquals(2350, planner.calculatePartyPrice(10, "1", "1", "1"));
     }
-    @Test
-    public void newPlanner_couponFor150GuestsOrMore_newPrice(){
-        Planner planner = new Planner("Kate's Party", 10, "1","1", "1");
-        assertEquals(2300, planner.couponFor150GuestsOrMore(2350));
-
-    }
 
 }

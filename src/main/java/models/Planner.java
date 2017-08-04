@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Planner {
 
-    private String nameofParty;
+    private String nameofPartyPlanner;
     private int numberOfGuests;
     private String bandName;
     private String foodMenu;
@@ -16,7 +16,7 @@ public class Planner {
     private int totalPrice;
 
     public Planner(String nameofParty, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
-        this.nameofParty = nameofParty;
+        this.nameofPartyPlanner = nameofParty;
         this.numberOfGuests = numberOfGuests;
         this.bandName = bandName;
         this.foodMenu = foodMenu;
@@ -29,7 +29,7 @@ public class Planner {
     }
 
     public String getNameofParty() {
-        return nameofParty;
+        return nameofPartyPlanner;
     }
 
     public int getNumberOfGuests() {
@@ -81,8 +81,13 @@ public class Planner {
         return totalPrice;
     }
 
-    public int couponFor150GuestsOrMore(int totalPrice) {
-        return totalPrice -= 50;
-        }
+    public int couponGenerator (int totalPrice, String numberOfGuests, String bandName, String foodMenu) {
+
+        int numberOfGuestsDiscount = (Integer.parseInt(numberOfGuests))*100;
+        int bandNameDiscountDiscount = (Integer.parseInt(bandName))*100;
+        int foodMenuDiscountDiscount = (Integer.parseInt(foodMenu))*100;
+        return totalPrice = (totalPrice -= (numberOfGuestsDiscount + bandNameDiscountDiscount + foodMenuDiscountDiscount));
     }
+
+}
 

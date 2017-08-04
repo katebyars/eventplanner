@@ -17,31 +17,29 @@ public class App {
             String navigationChoice = bufferedReader.readLine();
             if (navigationChoice.equals("YES")) {
 
-                System.out.println("For our records, what is the name of your party?");
-                String nameofParty = bufferedReader.readLine();
+                System.out.println("For our records, what is your name?");
+                String nameofPartyPlanner = bufferedReader.readLine();
 
-                System.out.println("How many guests will you have? If you have 150 guests or more, you'll receive $50.00 your entire price!");
+                System.out.println(nameofPartyPlanner + ", how many guests will you have? If you have 150 guests or more, you'll receive $50.00 your entire price!");
                 int numberOfGuests = Integer.parseInt(bufferedReader.readLine());
 
-                System.out.println("We have several menus to choose from. Please type in the number of the menu you would like: 1. Deluxe International 2. American Fusion Buffet 3. Backyard Barbeque");
+                System.out.println(nameofPartyPlanner + ", we have several menus to choose from. Please type in the number of the menu you would like: 1. Deluxe International 2. American Fusion Buffet 3. Backyard Barbeque");
                 String foodMenu = bufferedReader.readLine();
 
-                System.out.println("Would you like a band for the evening? Please type the number of the band you would like. You may select from the following house bands : 1.Perry and the Developers 2.You're the Project 3. Resubmit For Indentation");
+                System.out.println("Would you like a band for the evening " + nameofPartyPlanner + "?" + "Please type the number of the band you would like. You may select from the following house bands : 1.Perry and the Developers 2.You're the Project 3. Resubmit For Indentation");
                 String bandName = bufferedReader.readLine();
 
                 System.out.println("Would you like beverages at your party? We offer many choices. Please type the number of your choice: 1.Soft Drinks 2.Beer and Wine 3.Full Well Bar, Unlimited");
                 String beverageMenu = bufferedReader.readLine();
 
 
-                Planner planner = new Planner(nameofParty, numberOfGuests, bandName, foodMenu, beverageMenu);
-                System.out.println("Your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandName, foodMenu, beverageMenu);
+                System.out.println(nameofPartyPlanner + " your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
                 int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
 
-                if (planner.getNumberOfGuests() >= 150)
-                {
-                    planner.couponFor150GuestsOrMore(totalPrice);
-                    System.out.println("Congrats! Your party qualifies for a discount! Your new price is: $");
-                }
+            }
+            else {
+                System.out.println("Ok! Happy shopping elsewhere!");
             }
 
     }
