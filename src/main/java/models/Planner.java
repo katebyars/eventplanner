@@ -1,3 +1,5 @@
+package models;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -71,6 +73,12 @@ public class Planner {
         }
 
         totalPrice = ((numberOfGuests*10) + foodPrice + bandPrice + beveragePrice);
+        return totalPrice;
+    }
+    public int couponFor150GuestsOrMore(int totalPrice, int numberOfGuests){
+        if(numberOfGuests>=150){
+            totalPrice -= 50;
+        }
         return totalPrice;
     }
 
