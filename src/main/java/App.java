@@ -16,7 +16,7 @@ public class App {
 
         while (programRunning) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Hello and welcome to the party planner! Let's go over a few questions so that we can work up a custom quote for you. Enter one of the following navigation choices: PLAN, EXIT, SEE MY PARTIES, PLAN IT FOR ME");
+            System.out.println("Hello and welcome to the party planner! Let's go over a few questions so that we can work up a custom quote for you. Enter one of the following navigation choices: PLAN, EXIT, SEE MY PARTIES, PLAN IT FOR ME, BROWSE PACKAGES");
             try {
                 String navigationChoice = bufferedReader.readLine().toUpperCase();
                 if (navigationChoice.equals("PLAN")) {
@@ -176,6 +176,49 @@ public class App {
                             System.out.println("Ok! No worries! What would you like to do next?");
                             programRunning = true;
                         }
+                }
+                else if (navigationChoice.toUpperCase().equals("BROWSE PACKAGES")){
+
+                    Planner wedding = new Planner("The Wedding Package", 200, "2", "1", "3");
+                    wedding.convertChoices(wedding.getBandName());
+                    wedding.convertChoicesFood(wedding.getFoodMenu());
+                    wedding.convertChoicesBeverage(wedding.getBeverageMenu());
+
+                    Planner birthday = new Planner ("The Birthday Package", 30, "1", "1", "3");
+                    birthday.convertChoices(birthday.getBandName());
+                    birthday.convertChoicesFood(birthday.getFoodMenu());
+                    birthday.convertChoicesBeverage(birthday.getBeverageMenu());
+
+                    Planner reunion = new Planner("The Reunion Package", 100, "2", "3", "2");
+                    reunion.convertChoices(reunion.getBandName());
+                    reunion.convertChoicesFood(reunion.getFoodMenu());
+                    reunion.convertChoicesBeverage(reunion.getBeverageMenu());
+
+                    System.out.println("We have three packages to choose from. Here they are: ");
+                    System.out.println("#############################  PACKAGES  ########################");
+                    System.out.println(wedding.getNameofPartyPlanner() + " for up to " + wedding.getNumberOfGuests()  + " guests. Menu: " + wedding.getFoodMenu() + " | Beverage Service: " + wedding.getBeverageMenu());
+                    System.out.println(birthday.getNameofPartyPlanner() + " for up to " + birthday.getNumberOfGuests()  + " guests. Menu: " + birthday.getFoodMenu() + " | Beverage Service: " + birthday.getBeverageMenu());
+                    System.out.println(reunion.getNameofPartyPlanner() + " for up to " + reunion.getNumberOfGuests()  + " guests. Menu: " + reunion.getFoodMenu() + " | Beverage Service: " + reunion.getBeverageMenu());
+
+                    System.out.println("Would you like to choose one of these packages to add to the parties you are planning? YES or NO");
+
+                    if (bufferedReader.readLine().toUpperCase().equals("YES")) {
+                        System.out.println("Make your choice: birthday, reunion or wedding");
+                        if (bufferedReader.readLine().toUpperCase().equals("BIRTHDAY")) {
+                            allParties.add(birthday);
+                        }
+                        else if (bufferedReader.readLine().toUpperCase().equals("REUNION")) {
+                            allParties.add(reunion);
+                        }
+                        else if (bufferedReader.readLine().toUpperCase().equals("WEDDING")) {
+                            allParties.add(wedding);
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("Oops! Sorry ... I don't think we have a package by that name!");
+                    }
+                    System.out.println("Great! Thanks for browsing. I have added that package to your list of parties. I'll take you back to the main menu now.");
                 }
                 else {
                     System.out.println("I'm sorry, we don't recognize your input");
