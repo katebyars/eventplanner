@@ -18,7 +18,7 @@ public class App {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Hello and welcome to the party planner! Let's go over a few questions so that we can work up a custom quote for you. Enter one of the following navigation choices: PLAN, EXIT, SEE MY PARTIES, PLAN IT FOR ME");
             try {
-                String navigationChoice = bufferedReader.readLine();
+                String navigationChoice = bufferedReader.readLine().toUpperCase();
                 if (navigationChoice.equals("PLAN")) {
                     programRunning = true;
 
@@ -40,7 +40,7 @@ public class App {
 
                     Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandName, foodMenu, beverageMenu);
 
-                    planner.convertChoicesBand(bandName);
+                    planner.convertChoices(bandName);
                     planner.convertChoicesFood(foodMenu);
                     planner.convertChoicesBeverage(beverageMenu);
                     allParties.add(planner);
@@ -62,7 +62,7 @@ public class App {
                     System.out.println("code - YAY: Resubmit For Indentation + Full Well Bar + Deluxe International Menu - 400.00 off order");
                     System.out.println("#############################  ENTER YOUR COUPON CODE  ########################");
 
-                    String coupon = bufferedReader.readLine();
+                    String coupon = bufferedReader.readLine().toUpperCase();
 
                     if (coupon.equals("PERRY") || coupon.equals("YOU") || coupon.equals("YAY")) {
                         String nicePrice3 = NumberFormat.getIntegerInstance().format(planner.couponGenerator(planner.getTotalPrice(), planner.getNumberOfGuests(), planner.getBandName(), planner.getFoodMenu(), planner.getBeverageMenu()));
@@ -150,7 +150,7 @@ public class App {
                     System.out.println("Here is your beverage selection: " + beverageString);
 
                     System.out.println("Do you want to add this cool and totally random party to your list of parties? YES or NO?");
-                        if (bufferedReader.readLine().equals("YES")) {
+                        if (bufferedReader.readLine().toUpperCase().equals("YES")) {
                             Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
                             allParties.add(planner);
 

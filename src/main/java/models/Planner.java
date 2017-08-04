@@ -100,12 +100,15 @@ public class Planner {
         }
         else if (bandName.equals("Resubmit for Indentation") && beverageMenu.equals("Unlimited Full Well Bar") && foodMenu.equals("Deluxe International")){
         totalPrice-=400;
-    }
+        }
+        else {
+            totalPrice = totalPrice;
+        }
         this.totalPrice = totalPrice;
         return this.totalPrice;
     }
 
-    public String convertChoicesBand(String bandName){
+    public String convertChoices(String bandName){
         if (bandName.equals("1")){
             this.bandName = "Perry and the Developers";
         }
@@ -115,7 +118,7 @@ public class Planner {
         else if (bandName.equals("3")){
             this.bandName= "Resubmit for Indentation";
         }
-        else if (bandName.equals("0")){
+        else {
             this.bandName = "N/A";
         }
         return this.bandName;
@@ -130,7 +133,7 @@ public class Planner {
         else if (foodMenu.equals("3")){
             this.foodMenu= "Backyard Barbeque";
         }
-        else if (foodMenu.equals("0")){
+        else {
             this.foodMenu = "N/A";
         }
         return this.foodMenu;
@@ -145,7 +148,7 @@ public class Planner {
         else if (beverageMenu.equals("3")){
             this.beverageMenu= "Unlimited Full Well Bar";
         }
-        else if (beverageMenu.equals("0")){
+        else {
             this.beverageMenu = "N/A";
         }
         return this.beverageMenu;
