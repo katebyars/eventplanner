@@ -3,4 +3,10 @@
  */
 public class Planner {
 
+    private String nameofParty;
+
+    public Planner(String nameofParty){
+    }
+
+
 }
