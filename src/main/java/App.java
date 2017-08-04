@@ -35,6 +35,7 @@ public class App {
 
 
                 Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandName, foodMenu, beverageMenu);
+                planner.convertChoicesBand(bandName);
                 System.out.println("Great! Here are the details of your party:");
                 System.out.println("___________________________________________");
                 System.out.println("The party planner:" + planner.getNameofPartyPlanner());
@@ -42,9 +43,9 @@ public class App {
                 System.out.println("The band name:" + planner.getBandName());
                 System.out.println("The food menu:" + planner.getFoodMenu());
                 System.out.println("The beverage choice:" + planner.getBeverageMenu());
-                System.out.println("Your party will cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
+                System.out.println("Total cost: $" + planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu));
 
-                System.out.println("Now")
+                System.out.println("Do you have any coupons you would like to apply to this total?");
                 int totalPrice = planner.calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
                 int newTotal = planner.couponGenerator(totalPrice, numberOfGuests, bandName, foodMenu, beverageMenu);
                 System.out.println("AND guess what " + nameofPartyPlanner +"! you qualified for a few discounts because of your selections! Your new total is : " + newTotal);

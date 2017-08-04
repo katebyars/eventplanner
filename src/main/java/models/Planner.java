@@ -104,5 +104,19 @@ public class Planner {
         return newtotalPrice;
     }
 
+    public String convertChoicesBand(String bandName){
+        if (bandName.equals("1")){
+            this.bandName = "Perry and the Developers";
+        }
+        else if (bandName.equals("2")){
+            this.bandName = "You're the Project";
+        }
+        else if (bandName.equals("3")){
+            this.bandName= "Resubmit for Indentation";
+        }
+        return this.bandName;
+    }
+
+
 }
 
