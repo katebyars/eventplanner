@@ -1,12 +1,8 @@
 package models;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by Guest on 8/4/17.
- */
 public class Planner {
 
     private String nameofPartyPlanner;
@@ -15,7 +11,6 @@ public class Planner {
     private String foodMenu;
     private String beverageMenu;
     private int totalPrice;
-
 
     public Planner(String nameofPartyPlanner, int numberOfGuests, String bandName, String foodMenu, String beverageMenu) {
         this.nameofPartyPlanner = nameofPartyPlanner;
@@ -50,6 +45,45 @@ public class Planner {
         return totalPrice;
     }
 
+    public int reverseStringstoNumbersPricing(String bandName, String foodMenu, String beverageMenu, int numberOfGuests){
+
+        int totalPrice = 0;
+        int foodPrice = 0;
+        int bandPrice = 0;
+        int beveragePrice = 0;
+
+        if (foodMenu.equals("Deluxe International")) {
+            foodPrice = numberOfGuests * 20;
+        } else if (foodMenu.equals("American Fusion Buffeet")) {
+            foodPrice = numberOfGuests * 30;
+        } else if (foodMenu.equals("Backyard Barbeque")) {
+            foodPrice = numberOfGuests * 40;
+        } else if (foodMenu.equals("0")) {
+            foodPrice = 0;
+        }
+        if (bandName.equals("Perry and the Developers")) {
+            bandPrice = 2000;
+        } else if (bandName.equals("You're the Project")) {
+            bandPrice = 3000;
+        } else if (bandName.equals("Resubmit for Indentation")) {
+            bandPrice = 4000;
+        } else if (bandName.equals("0")) {
+            bandPrice = 0;
+        }
+        if (beverageMenu.equals("Soft Drinks")) {
+            beveragePrice = numberOfGuests * 5;
+        } else if (beverageMenu.equals("Beer and Wine")) {
+            beveragePrice = numberOfGuests * 12;
+        } else if (beverageMenu.equals("Full Well Bar")) {
+            beveragePrice = numberOfGuests * 35;
+        } else if (beverageMenu.equals("0")) {
+            beveragePrice = 0;
+        }
+
+        totalPrice = ((numberOfGuests * 10) + foodPrice + bandPrice + beveragePrice);
+        this.totalPrice = totalPrice;
+        return this.totalPrice;
+    }
 
     public int calculatePartyPrice(int numberOfGuests, String foodMenu, String bandName, String beverageMenu) {
         int totalPrice = 0;
@@ -157,6 +191,58 @@ public class Planner {
        int nonDiscountPrice = calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
        int DiscountPrice = nonDiscountPrice - 100;
        return DiscountPrice;
+    }
+
+    public int randomNumber(int aNumber){
+        Random generateRandomNumber = new Random();
+        int aRandomNumber = generateRandomNumber.nextInt(aNumber);
+        return aRandomNumber;
+    }
+    public String beverageNamePicker (int randomNumber) {
+        String beverageString = "";
+        switch (randomNumber) {
+            case 1:
+                beverageString = "Soft Drinks";
+                break;
+            case 2:
+                beverageString = "Beer and Wine";
+                break;
+            case 3:
+                beverageString = "Unlimited Full Well Bar";
+                break;
+        }
+        return beverageString;
+    }
+    public String bandNamePicker (int randomNumber) {
+        String bandString = "";
+        switch (randomNumber) {
+            case 1:
+                bandString = "Perry and the Developers";
+                break;
+            case 2:
+                bandString = "You're the Project";
+                break;
+            case 3:
+                bandString = "Resubmit for Indentation";
+                break;
+        }
+        return bandString;
+    }
+
+    public String foodeNamePicker (int randomNumber) {
+        String foodString = "";
+        switch (randomNumber) {
+            case 1:
+                foodString = "Deluxe International";
+                break;
+            case 2:
+                foodString = "American Fusion Buffet";
+                break;
+            case 3:
+                foodString = "Backyard Barbeque";
+                break;
+        }
+        return foodString;
     }
 }
 

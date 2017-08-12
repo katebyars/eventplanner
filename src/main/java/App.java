@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import models.Planner;
 
-/**
- * Created by Guest on 8/4/17.
- */
 public class App {
     public static void main(String[] args) {
         ArrayList<Planner> allParties = new ArrayList<Planner>();
@@ -98,79 +95,41 @@ public class App {
                     System.out.println("Goodbye!");
                     programRunning = false;
                 } else if (navigationChoice.equals("PLAN IT FOR ME")){
-
+                    String beverageString = "";
                     String bandString = "";
                     String foodString = "";
-                    String beverageString = "";
-
                     System.out.println("Alright! Let's plan your party. But first, what is your name?");
                     String nameofPartyPlanner = bufferedReader.readLine();
 
                     System.out.println("One more question : How many people will attend your party? We'll do the rest!");
                     int numberOfGuests = Integer.parseInt(bufferedReader.readLine());
 
-                    Random RandomGeneratorTwo = new Random();
-                    int bandNamePicker = RandomGeneratorTwo.nextInt(4);
-                    int band = bandNamePicker ;
-                    switch (band) {
-                        case 1:
-                            bandString = "Perry and the Developers";
-                            break;
-                        case 2:
-                            bandString = "You're the Project";
-                            break;
-                        case 3:
-                            bandString = "Resubmit for Indentation";
-                            break;
-                    }
+                    Planner tempPlanner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
 
-                    Random RandomGeneratorThree = new Random();
-                    int foodNamePicker = RandomGeneratorThree.nextInt(4);
-                    int food = bandNamePicker ;
-                    switch (food) {
-                        case 1:
-                            foodString = "Deluxe International";
-                            break;
-                        case 2:
-                            foodString = "American Fusion Buffet";
-                            break;
-                        case 3:
-                            foodString = "Backyard Barbeque";
-                            break;
-                    }
-
-                    Random RandomGeneratorOne = new Random();
-                    int beverageNamePicker = RandomGeneratorOne.nextInt(4);
-                    int beverage = bandNamePicker ;
-                    switch (beverage) {
-                        case 1:
-                            beverageString = "Soft Drinks";
-                            break;
-                        case 2:
-                            beverageString = "Beer and Wine";
-                            break;
-                        case 3:
-                            beverageString = "Unlimited Full Well Bar";
-                            break;
-                    }
+                    int randomNumber = tempPlanner.randomNumber(4);
+                    beverageString = tempPlanner.beverageNamePicker(randomNumber);
+                    bandString = tempPlanner.bandNamePicker(randomNumber);
+                    foodString = tempPlanner.foodeNamePicker(randomNumber);
+                    int price = tempPlanner.reverseStringstoNumbersPricing(bandString, foodString, beverageString, numberOfGuests);
 
                     System.out.println("Here is your band: " + bandString);
                     System.out.println("Here is your food: " + foodString);
                     System.out.println("Here is your beverage selection: " + beverageString);
+                    System.out.println("This party will cost: $" + price);
 
                     System.out.println("Do you want to add this cool and totally random party to your list of parties? YES or NO?");
                         if (bufferedReader.readLine().toUpperCase().equals("YES")) {
-                            Planner planner = new Planner(nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
-                            allParties.add(planner);
-
+                            Planner realPlanner = new Planner (nameofPartyPlanner, numberOfGuests, bandString, foodString, beverageString);
+                            int realPrice = realPlanner.reverseStringstoNumbersPricing(bandString, foodString, beverageString, numberOfGuests);
+                            realPrice = realPlanner.getTotalPrice();
+                            allParties.add(realPlanner);
                             System.out.println("#############################  Your party has been added! The details are below!  ########################");
-                            System.out.println("The party planner: " + planner.getNameofPartyPlanner());
-                            System.out.println("The number of guests: " + planner.getNumberOfGuests());
-                            System.out.println("The band name: " + planner.getBandName());
-                            System.out.println("The food menu: " + planner.getFoodMenu());
-                            System.out.println("The beverage choice: " + planner.getBeverageMenu());
-                            String nicePrice5 = NumberFormat.getIntegerInstance().format(planner.calculatePartyPrice(numberOfGuests, foodString, bandString, beverageString));
-                            System.out.println("Total cost: $" + nicePrice5);
+                            System.out.println("The party planner: " + realPlanner.getNameofPartyPlanner());
+                            System.out.println("The number of guests: " + realPlanner.getNumberOfGuests());
+                            System.out.println("The band name: " + realPlanner.getBandName());
+                            System.out.println("The food menu: " + realPlanner.getFoodMenu());
+                            System.out.println("The beverage choice: " + realPlanner.getBeverageMenu());
+                            System.out.println("Total cost: $" + realPlanner.getTotalPrice());
                         }
                         else{
                             System.out.println("Ok! No worries! What would you like to do next?");
