@@ -104,8 +104,15 @@ public class PlannerTest {
     }
 
     @Test
+    public void couponVerificationShowsCorrectMessageForYOUcoupon_True() {
+        Planner planner = new Planner ("Kate's Party", 150, "You're the Project","0", "Unlimited Full Well Bar");
+        assertEquals("YOU Discount Applied", planner.couponVerify("YOU"));
+    }
+    @Test
     public void couponVerificationShowsNotValidMessageForANonValidCoupon_True() {
         Planner planner = new Planner ("Kate's Party", 10, "Perry and the Developers","0", "Soft Drinks");
         assertEquals("No discount applied", planner.couponVerify("PERRY"));
     }
+
+
 }
