@@ -66,8 +66,13 @@ public class PlannerTest {
     @Test
     public void newPlanner_calculateDiscountedPackagePrice(){
         Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
-
         assertEquals(900, planner.discountedPackagePrice(100, "0","0","0"));
+    }
+    @Test
+    public void calculateRandomNumber_True() {
+        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
+        int aNumber = planner.randomNumber(4);
+        assertTrue(aNumber>5);
     }
 
 }
