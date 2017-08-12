@@ -74,5 +74,13 @@ public class PlannerTest {
         int aNumber = planner.randomNumber(4);
         assertTrue(aNumber<5);
     }
+    @Test
+    public void randomlySelectABeverage_True() {
+        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
+        int aNumber = planner.randomNumber(4);
+        String aBeverage = planner.beverageNamePicker(aNumber);
+//        assertEquals("Soft Drinks", aBeverage);
+        assertTrue(aBeverage instanceof String);
+    }
 
 }
