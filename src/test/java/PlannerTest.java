@@ -79,7 +79,7 @@ public class PlannerTest {
         Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
         int aNumber = planner.randomNumber(4);
         String aBeverage = planner.beverageNamePicker(aNumber);
-//        assertEquals("Soft Drinks", aBeverage);
+//        assertEquals("Soft Drinks", aBeverage); //use this piece of code to see that actual results are random.
         assertTrue(aBeverage instanceof String);
     }
 
