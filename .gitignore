@@ -41,3 +41,9 @@ build/
 ############
 .idea
 .idea/
+.gitignore
+gradel/wrapper
+eventplanner.iml
+gradlew
+gradlew.bat
+settings.gradle
