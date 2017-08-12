@@ -61,7 +61,7 @@ public class App {
 
                     String coupon = bufferedReader.readLine().toUpperCase();
 
-                   planner.couponVerify(coupon);
+                    System.out.println(planner.couponVerify(coupon));
 
                 } else if (navigationChoice.equals("SEE MY PARTIES")) {
                     System.out.println("Ok, here are your parties!");

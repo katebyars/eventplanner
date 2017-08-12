@@ -245,25 +245,20 @@ public class Planner {
         if (coupon.equals("PERRY") && this.getBandName().equals("Perry and the Developers") && this.getBeverageMenu().equals("Unlimited Full Well Bar")) {
 
             String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
-
-            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
-            returnValue = "PERRY Discount Applied";
+            returnValue = "PERRY discount applied! New total: " + nicePrice3;
 
         }
         else if (coupon.equals("YOU") && this.getNumberOfGuests() >= 150 && this.getBandName().equals("You're the Project")) {
             String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
-            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
-            returnValue = "YOU Discount Applied";
+            returnValue = "YOU Discount Applied! New total: " + nicePrice3;
 
         }
         else if (coupon.equals("YAY") && this.getBandName().equals("Resubmit for Indentation") && this.getBeverageMenu().equals("Unlimited Full Well Bar")) {
             String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
-            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
-            returnValue = "YAY Discount Applied";
+            returnValue = "YAY Discount Applied! New total: " + nicePrice3;
         }
         else {
-            System.out.println("Whoops! It looks like you don't qualify for a coupon!");
-            returnValue = "No discount applied";
+            returnValue = "No discount applied - It looks like you don't qualify! Oops!";
         }
         return returnValue;
 
