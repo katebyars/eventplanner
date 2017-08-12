@@ -97,4 +97,14 @@ public class PlannerTest {
         assertTrue(band instanceof String);
     }
 
+    @Test
+    public void couponVerificationShowsCorrectMessageForAValidCoupon_True() {
+
+    }
+
+    @Test
+    public void couponVerificationShowsNotValidMessageForANonValidCoupon_True() {
+
+    }
+
 }

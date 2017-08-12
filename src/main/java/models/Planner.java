@@ -1,5 +1,6 @@
 package models;
 import java.lang.reflect.Array;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -45,7 +46,7 @@ public class Planner {
         return totalPrice;
     }
 
-    public int reverseStringstoNumbersPricing(String bandName, String foodMenu, String beverageMenu, int numberOfGuests){
+    public int reverseStringstoNumbersPricing(String bandName, String foodMenu, String beverageMenu, int numberOfGuests) {
 
         int totalPrice = 0;
         int foodPrice = 0;
@@ -107,7 +108,7 @@ public class Planner {
         } else if (bandName.equals("3")) {
             bandPrice = 4000;
         } else if (bandName.equals("0")) {
-        bandPrice = 0;
+            bandPrice = 0;
         }
         if (beverageMenu.equals("1")) {
             beveragePrice = numberOfGuests * 5;
@@ -128,77 +129,69 @@ public class Planner {
 
         if (bandName.equals("Perry and the Developers") && beverageMenu.equals("Unlimited Full Well Bar")) {
             totalPrice -= 200;
-        }
-        else if (numberOfGuests >= 150 && bandName.equals("You're the Project")){
-        totalPrice -= 100;
-        }
-        else if (bandName.equals("Resubmit for Indentation") && beverageMenu.equals("Unlimited Full Well Bar") && foodMenu.equals("Deluxe International")){
-        totalPrice-=400;
-        }
-        else {
+        } else if (numberOfGuests >= 150 && bandName.equals("You're the Project")) {
+            totalPrice -= 100;
+        } else if (bandName.equals("Resubmit for Indentation") && beverageMenu.equals("Unlimited Full Well Bar") && foodMenu.equals("Deluxe International")) {
+            totalPrice -= 400;
+        } else {
             totalPrice = totalPrice;
         }
         this.totalPrice = totalPrice;
         return this.totalPrice;
     }
 
-    public String convertChoices(String bandName){
-        if (bandName.equals("1")){
+    public String convertChoices(String bandName) {
+        if (bandName.equals("1")) {
             this.bandName = "Perry and the Developers";
-        }
-        else if (bandName.equals("2")){
+        } else if (bandName.equals("2")) {
             this.bandName = "You're the Project";
-        }
-        else if (bandName.equals("3")){
-            this.bandName= "Resubmit for Indentation";
-        }
-        else {
+        } else if (bandName.equals("3")) {
+            this.bandName = "Resubmit for Indentation";
+        } else {
             this.bandName = "N/A";
         }
         return this.bandName;
     }
-    public String convertChoicesFood(String foodMenu){
-        if (foodMenu.equals("1")){
+
+    public String convertChoicesFood(String foodMenu) {
+        if (foodMenu.equals("1")) {
             this.foodMenu = "Deluxe International";
-        }
-        else if (foodMenu.equals("2")){
+        } else if (foodMenu.equals("2")) {
             this.foodMenu = "American Fusion Buffet";
-        }
-        else if (foodMenu.equals("3")){
-            this.foodMenu= "Backyard Barbeque";
-        }
-        else {
+        } else if (foodMenu.equals("3")) {
+            this.foodMenu = "Backyard Barbeque";
+        } else {
             this.foodMenu = "N/A";
         }
         return this.foodMenu;
     }
-    public String convertChoicesBeverage(String beverageMenu){
-        if (beverageMenu.equals("1")){
+
+    public String convertChoicesBeverage(String beverageMenu) {
+        if (beverageMenu.equals("1")) {
             this.beverageMenu = "Soft Drinks";
-        }
-        else if (beverageMenu.equals("2")){
+        } else if (beverageMenu.equals("2")) {
             this.beverageMenu = "Beer and Wine";
-        }
-        else if (beverageMenu.equals("3")){
-            this.beverageMenu= "Unlimited Full Well Bar";
-        }
-        else {
+        } else if (beverageMenu.equals("3")) {
+            this.beverageMenu = "Unlimited Full Well Bar";
+        } else {
             this.beverageMenu = "N/A";
         }
         return this.beverageMenu;
     }
-    public int discountedPackagePrice(int numberOfGuests, String foodMenu, String bandName, String beverageMenu){
-       int nonDiscountPrice = calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
-       int DiscountPrice = nonDiscountPrice - 100;
-       return DiscountPrice;
+
+    public int discountedPackagePrice(int numberOfGuests, String foodMenu, String bandName, String beverageMenu) {
+        int nonDiscountPrice = calculatePartyPrice(numberOfGuests, foodMenu, bandName, beverageMenu);
+        int DiscountPrice = nonDiscountPrice - 100;
+        return DiscountPrice;
     }
 
-    public int randomNumber(int aNumber){
+    public int randomNumber(int aNumber) {
         Random generateRandomNumber = new Random();
         int aRandomNumber = generateRandomNumber.nextInt(aNumber);
         return aRandomNumber;
     }
-    public String beverageNamePicker (int randomNumber) {
+
+    public String beverageNamePicker(int randomNumber) {
         String beverageString = "";
         switch (randomNumber) {
             case 1:
@@ -213,7 +206,8 @@ public class Planner {
         }
         return beverageString;
     }
-    public String bandNamePicker (int randomNumber) {
+
+    public String bandNamePicker(int randomNumber) {
         String bandString = "";
         switch (randomNumber) {
             case 1:
@@ -229,7 +223,7 @@ public class Planner {
         return bandString;
     }
 
-    public String foodNamePicker (int randomNumber) {
+    public String foodNamePicker(int randomNumber) {
         String foodString = "";
         switch (randomNumber) {
             case 1:
@@ -244,5 +238,31 @@ public class Planner {
         }
         return foodString;
     }
+
+    public String couponVerify(String coupon) {
+
+        if (coupon.equals("PERRY") && this.getBandName().equals("Perry and the Developers") && this.getBeverageMenu().equals("Unlimited Full Well Bar")) {
+
+            String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
+
+            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+
+        }
+        else if (coupon.equals("YOU") && this.getNumberOfGuests() >= 150 && this.getBandName().equals("You're the Project")) {
+            String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
+            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+
+        }
+        else if (coupon.equals("YAY") && this.getBandName().equals("Resubmit for Indentation") && this.getBeverageMenu().equals("Unlimited Full Well Bar")) {
+            String nicePrice3 = NumberFormat.getIntegerInstance().format(this.couponGenerator(this.getTotalPrice(), this.getNumberOfGuests(), this.getBandName(), this.getFoodMenu(), this.getBeverageMenu()));
+            System.out.println("Ok! Here is your discount! Your order total is: " + nicePrice3);
+        }
+        else {
+            System.out.println("Whoops! It looks like you don't qualify for a coupon!");
+        }
+        return null;
+
+    }
+
 }
 
