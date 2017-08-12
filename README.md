@@ -29,7 +29,7 @@ Party planner app with discounted coupon codes.
 | Parties have a price that adds in an amount based on the drink Menu and guest list size | Soft Drinks  | Total Price increases by 100*5.00 |
 | A coupon code changes the total price  | coupon code: PERRY, discount of 200.00 + Initial Price of 1000.00 | Final Price = 800.00  |
 | Packages have a preset discounted price | The Wedding Package |  New Price : 1000.00 |
-| Parties can be planned for you  | Go random! | A party with Perry and the Developers band, American Fusion Buffett and Soft Drinks  |
+| Parties can be planned for you  | Go random! | A party with Perry and the Developers band, American Fusion Buffet and Soft Drinks  |
 
 
 ## Technologies Used

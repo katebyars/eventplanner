@@ -36,14 +36,15 @@ Thumbs.db
 ############
 build/
 .gradle/
+gradel/wrapper
+eventplanner.iml
+gradlew
+gradlew.bat
+settings.gradle
 
 # IntelliJ #
 ############
 .idea
 .idea/
 .gitignore
-gradel/wrapper
-eventplanner.iml
-gradlew
-gradlew.bat
-settings.gradle
+
