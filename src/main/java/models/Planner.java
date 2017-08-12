@@ -54,7 +54,7 @@ public class Planner {
 
         if (foodMenu.equals("Deluxe International")) {
             foodPrice = numberOfGuests * 20;
-        } else if (foodMenu.equals("American Fusion Buffeet")) {
+        } else if (foodMenu.equals("American Fusion Buffet")) {
             foodPrice = numberOfGuests * 30;
         } else if (foodMenu.equals("Backyard Barbeque")) {
             foodPrice = numberOfGuests * 40;
