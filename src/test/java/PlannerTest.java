@@ -1,5 +1,8 @@
 import models.Planner;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +12,7 @@ import static org.junit.Assert.*;
 public class PlannerTest {
 
     @Test
-    public void newPlanner_Instantiate() {
+    public void newPlanner_Instantiates() {
         Planner planner = new Planner("Kate's Party", 10, "1","1", "1");
         assertEquals(true, planner instanceof Planner);
     }
@@ -18,6 +21,24 @@ public class PlannerTest {
     public void newPlanner_parametersExist() {
         Planner planner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
         assertEquals("Kate's Party", planner.getNameofPartyPlanner());
+    }
+
+    @Test
+    public void allPartiesContainsParties_True(){
+        Planner planner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
+        ArrayList <Planner> allParties = new ArrayList<>();
+        allParties.add(planner);
+        assertEquals(1, allParties.size());
+    }
+
+    @Test
+    public void allPartiesContainsMoreThanOneParty_True () {
+        Planner planner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
+        Planner otherPlanner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
+        ArrayList <Planner> allParties = new ArrayList<>();
+        allParties.add(planner);
+        allParties.add(planner);
+        assertEquals(2, allParties.size());
     }
 
     @Test
