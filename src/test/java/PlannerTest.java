@@ -82,5 +82,19 @@ public class PlannerTest {
 //        assertEquals("Soft Drinks", aBeverage); //use this piece of code to see that actual results are random.
         assertTrue(aBeverage instanceof String);
     }
+    @Test
+    public void randomlySelectFood_True() {
+        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
+        int aNumber = planner.randomNumber(4);
+        String food = planner.foodNamePicker(aNumber);
+        assertTrue(food instanceof String);
+    }
+    @Test
+    public void randomlySelectBand_True() {
+        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
+        int aNumber = planner.randomNumber(4);
+        String band = planner.bandNamePicker(aNumber);
+        assertTrue(band instanceof String);
+    }
 
 }

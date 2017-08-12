@@ -109,7 +109,7 @@ public class App {
                     int randomNumber = tempPlanner.randomNumber(4);
                     beverageString = tempPlanner.beverageNamePicker(randomNumber);
                     bandString = tempPlanner.bandNamePicker(randomNumber);
-                    foodString = tempPlanner.foodeNamePicker(randomNumber);
+                    foodString = tempPlanner.foodNamePicker(randomNumber);
                     int price = tempPlanner.reverseStringstoNumbersPricing(bandString, foodString, beverageString, numberOfGuests);
 
                     System.out.println("Here is your band: " + bandString);

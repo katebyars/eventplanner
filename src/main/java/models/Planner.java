@@ -229,7 +229,7 @@ public class Planner {
         return bandString;
     }
 
-    public String foodeNamePicker (int randomNumber) {
+    public String foodNamePicker (int randomNumber) {
         String foodString = "";
         switch (randomNumber) {
             case 1:
