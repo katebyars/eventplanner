@@ -49,7 +49,7 @@ public class PlannerTest {
 
     @Test public void calculatePriceWhenGivenStringNames_int() {
         Planner planner = new Planner ("Kate's Party", 10, "1", "1", "1");
-        assertEquals(0, planner.reverseStringstoNumbersPricing("Perry and the Developers", "American Fusion Buffet", "Soft Drinks", 100));
+        assertEquals(6500, planner.reverseStringstoNumbersPricing("Perry and the Developers", "American Fusion Buffet", "Soft Drinks", 100));
     }
 
     @Test
