@@ -106,6 +106,6 @@ public class PlannerTest {
     @Test
     public void couponVerificationShowsNotValidMessageForANonValidCoupon_True() {
         Planner planner = new Planner ("Kate's Party", 10, "Perry and the Developers","0", "Soft Drinks");
-        assertEquals("PERRY Discount Applied", planner.couponVerify("PERRY"));
+        assertEquals("No discount applied", planner.couponVerify("PERRY"));
     }
 }
