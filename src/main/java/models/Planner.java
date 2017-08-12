@@ -240,7 +240,7 @@ public class Planner {
     }
 
     public String couponVerify(String coupon) {
-        String returnValue;
+        String returnValue = "";
 
         if (coupon.equals("PERRY") && this.getBandName().equals("Perry and the Developers") && this.getBeverageMenu().equals("Unlimited Full Well Bar")) {
 

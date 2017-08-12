@@ -99,8 +99,8 @@ public class PlannerTest {
 
     @Test
     public void couponVerificationShowsCorrectMessageForAValidCoupon_True() {
-        Planner planner = new Planner ("Kate's Party", 10, "0","0", "0");
-        assertEquals("PERRY", planner.couponVerify(""));
+        Planner planner = new Planner ("Kate's Party", 10, "Perry and the Developers","0", "Unlimited Full Well Bar");
+        assertEquals("PERRY Discount Applied", planner.couponVerify("PERRY"));
     }
 
     @Test
