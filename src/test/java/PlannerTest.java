@@ -37,7 +37,7 @@ public class PlannerTest {
         Planner otherPlanner = new Planner ("Kate's Party", 10, "Jimmy and the Developers","1", "1");
         ArrayList <Planner> allParties = new ArrayList<>();
         allParties.add(planner);
-        allParties.add(planner);
+        allParties.add(otherPlanner);
         assertEquals(2, allParties.size());
     }
 
