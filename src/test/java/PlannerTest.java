@@ -100,25 +100,25 @@ public class PlannerTest {
     @Test
     public void couponVerificationShowsCorrectMessageForAValidCoupon_True() {
         Planner planner = new Planner ("Kate's Party", 10, "Perry and the Developers","0", "Unlimited Full Well Bar");
-        assertEquals("PERRY Discount Applied", planner.couponVerify("PERRY"));
+        assertEquals("PERRY discount applied! New total: -200", planner.couponVerify("PERRY"));
     }
 
     @Test
     public void couponVerificationShowsCorrectMessageForYOUcoupon_True() {
         Planner planner = new Planner ("Kate's Party", 150, "You're the Project","0", "Unlimited Full Well Bar");
-        assertEquals("YOU Discount Applied", planner.couponVerify("YOU"));
+        assertEquals("YOU Discount Applied! New total: -100", planner.couponVerify("YOU"));
     }
 
     @Test
     public void couponVerificationShowsCorrectMessageForYAYcoupon_True() {
         Planner planner = new Planner ("Kate's Party", 150, "Resubmit for Indentation","0", "Unlimited Full Well Bar");
-        assertEquals("YAY Discount Applied", planner.couponVerify("YAY"));
+        assertEquals("YAY Discount Applied! New total: 0", planner.couponVerify("YAY"));
     }
 
     @Test
     public void couponVerificationShowsNotValidMessageForANonValidCoupon_True() {
         Planner planner = new Planner ("Kate's Party", 10, "Perry and the Developers","0", "Soft Drinks");
-        assertEquals("No discount applied", planner.couponVerify("PERRY"));
+        assertEquals("No discount applied - It looks like you don't qualify! Oops!", planner.couponVerify("PERRY"));
     }
 
 
